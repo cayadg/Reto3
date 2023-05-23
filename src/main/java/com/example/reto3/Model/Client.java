@@ -20,6 +20,7 @@ public class Client {
 
     private Integer age;
 
+    //KKK
     //Mensajes
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
     @JsonIgnoreProperties("client")
