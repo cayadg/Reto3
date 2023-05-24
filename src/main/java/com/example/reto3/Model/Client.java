@@ -19,7 +19,7 @@ public class Client {
     private String name;
 
     private Integer age;
-    
+
     //Mensajes
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
     @JsonIgnoreProperties("client")

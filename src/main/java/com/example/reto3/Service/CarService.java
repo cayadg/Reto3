@@ -43,9 +43,6 @@ public class CarService {
                 if(car.getName()!=null){
                     carEncontrado.get().setName(car.getName());
                 }
-                if(car.getYear()!=null){
-                    carEncontrado.get().setYear(car.getYear());
-                }
                 if(car.getDescription()!=null){
                     carEncontrado.get().setDescription(car.getDescription());
                 }

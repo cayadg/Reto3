@@ -16,7 +16,7 @@ public class Car {
 
     private String brand;
 
-    private String year;
+    private int year;
 
     private String description;
 
@@ -60,11 +60,11 @@ public class Car {
         this.brand = brand;
     }
 
-    public String getYear() {
+    public int getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(int year) {
         this.year = year;
     }
 
