@@ -34,25 +34,25 @@ public class GamaService {
     }
 
     public Gama update(Gama gama){
-        if(gama.getIdGama()!=null){
+        if(gama.getIdGama()!=null) {
             Optional<Gama> gamaEncontrado = getGama(gama.getIdGama());
-            if(gamaEncontrado.isPresent()){
-                if(gama.getName()!=null){
+            if (gamaEncontrado.isPresent()) {
+                if (gama.getName() != null) {
                     gamaEncontrado.get().setName(gama.getName());
                 }
-                if(gama.getDescription()!=null){
+                if (gama.getDescription() != null) {
                     gamaEncontrado.get().setDescription(gama.getDescription());
                 }
                 return gamaRepository.save(gamaEncontrado.get());
-            }else{
+            }
+        }else{
                 return gama;
             }
-        }else {
             return gama;
         }
-    }
 
-    public boolean deleteGama(int id){
+
+    public boolean delete(int id){
         Boolean respuesta = getGama(id).map(gama ->{
             gamaRepository.delete(gama);
             return true;

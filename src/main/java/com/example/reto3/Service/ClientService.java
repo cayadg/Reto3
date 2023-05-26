@@ -38,11 +38,11 @@ public class ClientService {
         if(client.getIdClient()!=null){
             Optional<Client> clientEncontrado = getClient(client.getIdClient());
             if(clientEncontrado.isPresent()){
-                if(client.getEmail()!=null){
-                    clientEncontrado.get().setEmail(client.getEmail());
-                }
                 if(client.getName()!=null){
                     clientEncontrado.get().setName(client.getName());
+                }
+                if(client.getEmail()!=null){
+                    clientEncontrado.get().setEmail(client.getEmail());
                 }
                 if(client.getAge()!=null){
                     clientEncontrado.get().setAge(client.getAge());
@@ -51,15 +51,14 @@ public class ClientService {
                     clientEncontrado.get().setPassword(client.getPassword());
                 }
                 return clientRepository.save(clientEncontrado.get());
-            }else{
-                return client;
             }
-        }else {
+        }else{
             return client;
         }
+        return client;
     }
 
-    public boolean deleteClient(int id){
+    public boolean delete(int id){
         Boolean respuesta = getClient(id).map(client ->{
             clientRepository.delete(client);
             return true;

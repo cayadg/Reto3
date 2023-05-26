@@ -41,19 +41,19 @@ public class MessageService {
                     messageEncontrado.get().setMessageText(message.getMessageText());
                 }
                 return messageRepository.save(messageEncontrado.get());
-            }else{
-                return message;
             }
-        }else {
+        }else{
             return message;
         }
+        return message;
     }
 
-    public boolean deleteMessage(int id){
+    public boolean delete(int id){
         Boolean respuesta = getMessage(id).map(message ->{
             messageRepository.delete(message);
             return true;
         }).orElse(false);
         return respuesta;
     }
+
 }

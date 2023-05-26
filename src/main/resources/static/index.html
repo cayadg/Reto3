@@ -2,9 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Reto 3</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Demo</title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width">
+    <base href="/"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="application/javascript" src="webjars/jquery/jquery.min.js"></script>
+    <script type="application/javascript" src="webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
- <h1>Hola Mundo Loco</h1>
+ <h1>Todos a la U</h1>
+<div class="container unautheticated">
+    Para iniciar sesión con Github:
+    <a href="/oauth2/authorization/github">haz click</a>
+</div>
+<div class="container authenticated" style="...">
+    Autenticado como:<span id="user"></span>
+</div>
 </body>
+<script type="text/javascript">
+    $.get("/user", function (data){
+        $("#user").html(data.name);
+        $(".unautheticated").hide()
+        $(".authenticated").show()
+        });
+</script>
 </html>

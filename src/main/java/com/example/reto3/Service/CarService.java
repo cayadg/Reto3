@@ -34,33 +34,36 @@ public class CarService {
     }
 
     public Car update(Car car){
-        if(car.getIdCar()!=null){
+        if(car.getIdCar()!=null) {
             Optional<Car> carEncontrado = getCar(car.getIdCar());
-            if(carEncontrado.isPresent()){
-                if(car.getBrand()!=null){
-                    carEncontrado.get().setBrand(car.getBrand());
-                }
-                if(car.getName()!=null){
+            if (carEncontrado.isPresent()) {
+                if (car.getName() != null) {
                     carEncontrado.get().setName(car.getName());
                 }
-                if(car.getDescription()!=null){
+                if (car.getBrand() != null) {
+                    carEncontrado.get().setBrand(car.getBrand());
+                }
+                if (car.getGama() != null) {
+                    carEncontrado.get().setGama(car.getGama());
+                }
+                if (car.getDescription() != null) {
                     carEncontrado.get().setDescription(car.getDescription());
                 }
                 return carRepository.save(carEncontrado.get());
-            }else{
-                return car;
             }
-        }else {
+        }else{
             return car;
         }
-    }
+        return car;
+        }
 
-    public boolean deleteCar(int id){
+    public boolean delete(int id){
         Boolean respuesta = getCar(id).map(car ->{
             carRepository.delete(car);
             return true;
         }).orElse(false);
         return respuesta;
         }
-    }
+
+}
 
