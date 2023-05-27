@@ -49,6 +49,7 @@ public class CarService {
                 if (car.getDescription() != null) {
                     carEncontrado.get().setDescription(car.getDescription());
                 }
+                carEncontrado.get().setYear(car.getYear());
                 return carRepository.save(carEncontrado.get());
             }
         }else{
