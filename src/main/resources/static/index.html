@@ -18,14 +18,14 @@
     <a href="/oauth2/authorization/github">haz click</a>
 </div>
 <div class="container authenticated" style="...">
-    Autenticado como:<span id="usuario"></span>
+    Autenticado como: <span id="user"></span>
 </div>
 </body>
 <script type="text/javascript">
     $.get("/user", function (data){
-        $("#usuario").html(data.name);
-        $(".unauthenticated").hide();
-        $(".authenticated").show();
+        $("#user").html(data.name);
+        $(".unauthenticated").hide()
+        $(".authenticated").show()
         });
 </script>
 </html>
