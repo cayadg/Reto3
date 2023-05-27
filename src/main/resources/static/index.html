@@ -14,18 +14,17 @@
 <body>
  <h1>Todos a la U</h1>
 <div class="container unauthenticated">
-    Para iniciar sesión con Github:
-    <a href="/oauth2/authorization/github">haz click</a>
+    Para iniciar sesión haz click<a href="/oauth2/authorization/github">aquí</a>
 </div>
-<div class="container authenticated" style="...">
-    Autenticado como: <span id="user"></span>
+<div class="container authenticated" style="display: none">
+    Autenticado como: <span id="usuario"></span>
 </div>
 </body>
 <script type="text/javascript">
     $.get("/user", function (data){
-        $("#user").html(data.name);
-        $(".unauthenticated").hide()
-        $(".authenticated").show()
+        $("#usuario").html(data.name);
+        $(".unauthenticated").hide();
+        $(".authenticated").show();
         });
 </script>
 </html>
