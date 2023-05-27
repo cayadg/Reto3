@@ -13,7 +13,7 @@
 </head>
 <body>
  <h1>Todos a la U</h1>
-<div class="container unautheticated">
+<div class="container unauthenticated">
     Para iniciar sesión con Github:
     <a href="/oauth2/authorization/github">haz click</a>
 </div>
@@ -24,7 +24,7 @@
 <script type="text/javascript">
     $.get("/user", function (data){
         $("#usuario").html(data.name);
-        $(".unautheticated").hide();
+        $(".unauthenticated").hide();
         $(".authenticated").show();
         });
 </script>
